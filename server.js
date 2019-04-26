@@ -153,6 +153,10 @@ app.get('/testing',(req,res)=>{
     res.end();
 })
 
+ app.get('/*', (req,res)=>{
+     if(err) return  console.log(err);
+    res.sendFile(path.resolve('./dist/postal-api/index.html'));
+ })
 const port = process.env.PORT || 3000;
 app.listen(port, (err) => {
     if (err) throw err;
