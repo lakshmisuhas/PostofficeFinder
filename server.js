@@ -153,7 +153,7 @@ app.get('/testing',(req,res)=>{
     res.end();
 })
 
- app.get('/*', (req,res)=>{
+ app.get('/*', (req,res,err)=>{
      if(err) return  console.log(err);
     res.sendFile(path.resolve('./dist/postal-api/index.html'));
  })
