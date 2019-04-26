@@ -4,6 +4,7 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const url =require('url');
 const querystring = require('querystring');
+const path = require('path');
 
 var output = {};
 
@@ -15,11 +16,11 @@ app.use(function(req, res, next) {
   });
   
 
- app.use(express.static('./postal-api/dist/postal-api'));
+ app.use(express.static('./dist/postal-api'));
  
  app.get('/', (req,res)=>{
      if(err) return  console.log(err);
-    res.sendFile(path.resolve('./postal-api/dist/postal-api/index.html'));
+    res.sendFile(path.resolve('./dist/postal-api/index.html'));
  })
 app.use(bodyParser.urlencoded({extended: false}));
 const convar = mysql.createPool({
